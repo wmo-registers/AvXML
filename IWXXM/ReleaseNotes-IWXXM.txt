@@ -1,4 +1,10 @@
 =========================================
+2021-2-dev - TBA
+=========================================
+Package Common (Version 3.1.0RC1)
+  * Modified iwxxm:ReportType for the introduction of Package Meteorological Feature 
+
+=========================================
 3.0-dev
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)

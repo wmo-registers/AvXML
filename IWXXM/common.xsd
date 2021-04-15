@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/3.0" version="3.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
 	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1/AIXM_Features.xsd"></import>
+	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>Common constructs used across multiple packages.  This package includes constructs closely related to the aviation weather domain.
 
 References to WMO and ICAO Technical Regulations within this XML schema shall have no formal status and are for information purposes only. Where there are differences between the Technical Regulations and the schema, the Technical Regulations shall take precedence. Technical Regulations may impose requirements that are not described in this schema.</documentation>
 	</annotation>
-	<element name="Report" type="iwxxm:ReportType" substitutionGroup="gml:AbstractFeature" abstract="true">
+	<element name="BasicReport" type="iwxxm:BasicReportType" substitutionGroup="gml:AbstractFeature" abstract="true">
 		<annotation>
-			<documentation>The base type for all reports, including information that is common across all report types</documentation>
+			<documentation>The base type for all reports, including information that is common across all report types.</documentation>
+		</annotation>
+	</element>
+	<complexType name="BasicReportType" abstract="true">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence></sequence>
+				<attribute name="reportStatus" type="iwxxm:ReportStatusType"></attribute>
+				<attribute name="permissibleUsage" type="iwxxm:PermissibleUsageType"></attribute>
+				<attribute name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType"></attribute>
+				<attribute name="permissbleUsageSupplementary" type="string"></attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BasicReportPropertyType">
+		<sequence minOccurs="0">
+			<element ref="iwxxm:BasicReport"></element>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"></attributeGroup>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"></attributeGroup>
+	</complexType>
+	<element name="Report" type="iwxxm:ReportType" substitutionGroup="iwxxm:BasicReport" abstract="true">
+		<annotation>
+			<documentation>The fundamental type for all legacy reports in Annex 3.</documentation>
 		</annotation>
 	</element>
 	<complexType name="ReportType" abstract="true">
 		<complexContent>
-			<extension base="gml:AbstractFeatureType">
+			<extension base="iwxxm:BasicReportType">
 				<sequence></sequence>
-				<attribute use="required" name="reportStatus" type="iwxxm:ReportStatusType">
-					<annotation>
-						<documentation>The issuance status of the report.</documentation>
-					</annotation>
-				</attribute>
-				<attribute use="required" name="permissibleUsage" type="iwxxm:PermissibleUsageType">
-					<annotation>
-						<documentation>The permissible usage of this report (operational or non-operational)</documentation>
-					</annotation>
-				</attribute>
-				<attribute name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType">
-					<annotation>
-						<documentation>The permissible usage reason of this report. Only populated when the permissible usage is non-operational</documentation>
-					</annotation>
-				</attribute>
-				<attribute name="permissibleUsageSupplementary" type="string">
-					<annotation>
-						<documentation>Additional human-readable descriptive information regarding the permissible usage.  Only populated when the permissible usage is non-operational</documentation>
-					</annotation>
-				</attribute>
 				<attribute name="translatedBulletinID" type="string">
 					<annotation>
 						<documentation>The TAC bulletin ID that was translated, of the form 'TTAAiiCCCYYGGgg'</documentation>
