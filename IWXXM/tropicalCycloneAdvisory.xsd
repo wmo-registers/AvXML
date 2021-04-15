@@ -113,12 +113,12 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 					</element>
 					<element name="movementDirection" type="gml:AngleType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>The movement direction observed.  Only reported when the tropical cyclone is moving at least 6 km/hour or 3 knots. Direction of movement shall be given in degrees from true North. Plane angle unit of measure (uom) is "deg".</documentation>
+							<documentation>The movement direction observed.  Only reported when the tropical cyclone is moving at least 2 km/hour or 1 knot. Direction of movement shall be given in degrees from true North. Plane angle unit of measure (uom) is "deg".</documentation>
 						</annotation>
 					</element>
 					<element name="movementSpeed" type="gml:SpeedType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>The movement speed observed.  Only reported when the tropical cyclone is moving at least 6 km/hour or 3 knots.  Speed of movement shall be provided in either two units of measures: "km/h" or "[kn_i]" (knot).</documentation>
+							<documentation>The movement speed observed.  Only reported when the tropical cyclone is moving at least 2 km/hour or 1 knot.  Speed of movement shall be provided in either two units of measures: "km/h" or "[kn_i]" (knot).</documentation>
 						</annotation>
 					</element>
 					<element name="intensityChange" type="iwxxm:ExpectedIntensityChangeType">

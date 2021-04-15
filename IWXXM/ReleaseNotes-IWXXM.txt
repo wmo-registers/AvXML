@@ -1,13 +1,14 @@
 =========================================
 2021-2-dev - TBA
 =========================================
-Package Tropical Cyclone Advisory
-* Changes involving Amendments 79 and 80 to ICAO Annex 3
+Package Tropical Cyclone Advisory (Version 3.1.0-dev)
+  * Changes involving Amendments 79 and 80 to ICAO Annex 3
   + Added iwxxm:intensityChange to indicate changes of maximum surface wind speed at the time of observation
-* Made iwxxm:tropicalCyclonePosition and iwxxm:maximumSurfaceWindSpeed in the forecast part of the Tropical Cyclone Advisory
+  * Made iwxxm:tropicalCyclonePosition and iwxxm:maximumSurfaceWindSpeed in the forecast part of the Tropical Cyclone Advisory
   nillable (issue #166)
-* Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
-* Updated the content of TAC-to-XML-Guidance.txt (issues #107)
+  * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
+  * Revised the notes in iwxxm:movementDirection and iwxxm:movementSpeed (issue #244)
+  * Updated the content of TAC-to-XML-Guidance.txt (issues #107)
 
 =========================================
 3.0-dev - Not published
