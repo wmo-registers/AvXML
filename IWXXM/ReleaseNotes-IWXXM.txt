@@ -1,4 +1,10 @@
 =========================================
+2021-2-dev - TBA
+=========================================
+Package Meteorological Feature (Version 1.0.0-dev)
+  * Introduced Weather Object (WxObject) and associated features
+
+=========================================
 3.0-dev
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)
