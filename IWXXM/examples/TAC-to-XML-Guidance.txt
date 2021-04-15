@@ -41,7 +41,7 @@ R99 (runway designator for runway state)
   When a new runway state report is not available in time for dissemination of the METAR message, attribute "fromPreviousReport" shall be set to true and runway nilReason set to "http://codes.wmo.int/common/nil/inapplicable"
 
 SNOCLO - Runways closed due to snow
-  When all runways are closed due to snow, this shall be indicated with a "runwayState" with a nilReason of "http://codes.wmo.int/bufr4/codeflag/0-20-085/1"
+  When all runways are closed due to snow, this shall be indicated with a "runwayState" with a nilReason of "http://codes.wmo.int/common/nil/inapplicable"
 
 Present weather "//"
   When present weather cannot be observed by the automatic observing system due to a temporary failure of the system/sensor, "presentWeather" shall be reported with a nilReason of "http://codes.wmo.int/common/nil/notObservable"

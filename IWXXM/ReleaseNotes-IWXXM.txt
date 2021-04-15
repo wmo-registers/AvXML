@@ -1,5 +1,11 @@
 =========================================
-3.0-dev
+2021-2-dev - TBA
+=========================================
+* Fixed the issue of unnecessarily restricting the maximum number of iwxxm:trendForecast to 3
+* Fixed the issue regarding the recommended nilReason for SNOCLO cannot pass Schematron validation (issue #203)
+
+=========================================
+3.0-dev - Not published
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)
 * Fixed METAR_SPECI.MeteorologicalAerodromeObservationReport-5, 6, 7 and 8 which cannot handle nilReason(s) in multiple cloud

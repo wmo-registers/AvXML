@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/3.0" version="3.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns="http://www.w3.org/2001/XMLSchema">
 	<include schemaLocation="common.xsd"></include>
+	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>METAR and SPECI reporting constructs as defined in ICAO Annex 3 / WMO No. 49-2.
@@ -42,7 +43,7 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 							<documentation>The observation which resulted in the current meteorological conditions at an aerodrome</documentation>
 						</annotation>
 					</element>
-					<element nillable="true" name="trendForecast" type="iwxxm:MeteorologicalAerodromeTrendForecastPropertyType" minOccurs="0" maxOccurs="3">
+					<element nillable="true" name="trendForecast" type="iwxxm:MeteorologicalAerodromeTrendForecastPropertyType" minOccurs="0" maxOccurs="unbounded">
 						<annotation>
 							<documentation>The process that results in a trend forecast.  When no change is expected to occur during a forecast period ("NOSIG") this is indicated by a single missing trend forecast with a nil reason of noSignificantChange</documentation>
 						</annotation>
@@ -297,7 +298,7 @@ Measured altimeter setting shall be given in hectoPascals ("hPa").</documentatio
 						<annotation>
 							<documentation>When observed, between one and three present weather conditions
 
-When present weather cannot be observed by the automatic observing system due to a temporary failure of the system/sensor ("//") the present weather is missing with a nil reason of notObservab</documentation>
+When present weather cannot be observed by the automatic observing system due to a temporary failure of the system/sensor ("//") the present weather is missing with a nil reason of notObservable</documentation>
 						</annotation>
 					</element>
 					<element nillable="true" name="cloud" minOccurs="0" maxOccurs="1">
