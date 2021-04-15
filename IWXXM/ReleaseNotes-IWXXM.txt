@@ -7,6 +7,7 @@
 * Updated the content of TAC-to-XML-Guidance.txt (also from issues #107)
 * Made iwxxm:tropicalCyclonePosition and iwxxm:maximumSurfaceWindSpeed in the forecast part of the Tropical Cyclone Advisory
   nillable (issue #166)
+* Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
 
 =========================================
 3.0-dev - Not published
