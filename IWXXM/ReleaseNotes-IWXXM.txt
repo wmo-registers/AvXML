@@ -1,7 +1,7 @@
 =========================================
 2021-2-dev - TBA
 =========================================
-Package TAF
+Package TAF (Version 3.1.0-dev)
 * Made attribute cloudAndVisibilityOK in MeteorologicalAerodromeForecast in TAF optional (issue #233)
 
 =========================================
