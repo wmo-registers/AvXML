@@ -150,7 +150,13 @@ Volcanic Ash Advisory
   
 'UNKNOWN' volcano location
   An unknown volcano location shall be indicated with a "EruptingVolcano/position" with a nilReason of "http://codes.wmo.int/common/nil/unknown"
-  
+
+'UNKNOWN' State or region
+  An unknown State or region shall be indicated with an empty "stateOrRegion" and a nilReason of "http://codes.wmo.int/common/nil/unknown"
+
+'UNKNOWN' summit elevation
+  An unknown summit elevation shall be indicated with an empty "elevation" and a nilReason of "http://codes.wmo.int/common/nil/unknown"
+ 
 'UNKNOWN' aviation colour code
   An unknown aviation colour code shall be indicated with a "colourCode" with a nilReason of "http://codes.wmo.int/common/nil/unknown"
   

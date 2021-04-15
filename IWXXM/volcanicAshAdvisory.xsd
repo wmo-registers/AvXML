@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/3.0" version="3.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
 	<include schemaLocation="common.xsd"></include>
 	<import namespace="http://def.wmo.int/metce/2013" schemaLocation="http://schemas.wmo.int/metce/1.2/metce.xsd"></import>
+	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>Volcanic Ash Advisory reporting constructs as defined in ICAO Annex 3 / WMO No. 49-2.
@@ -41,9 +42,9 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 					</element>
 					<element name="summitElevation" type="iwxxm:LengthWithNilReasonType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>Elevation of a summit.
+							<documentation>Elevation of the summit.  If reported it shall either be in meters ("m") or feet ("[ft_i]").
 
-Summit elevation shall be reported either in meters ("m") or feet ("[ft_i]").</documentation>
+When the elevation is unknown, it shall be empty with a nil reason of 'unknown'.</documentation>
 						</annotation>
 					</element>
 					<element name="advisoryNumber" type="iwxxm:StringWithNilReasonType" minOccurs="0" maxOccurs="1">
