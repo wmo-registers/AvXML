@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/3.0" version="3.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
 	<include schemaLocation="common.xsd"></include>
 	<import namespace="http://def.wmo.int/metce/2013" schemaLocation="http://schemas.wmo.int/metce/1.2/metce.xsd"></import>
+	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>Tropical Cyclone Advisory reporting constructs as defined in ICAO Annex 3 / WMO No. 49-2.
@@ -120,6 +121,11 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 							<documentation>The movement speed observed.  Only reported when the tropical cyclone is moving at least 6 km/hour or 3 knots.  Speed of movement shall be provided in either two units of measures: "km/h" or "[kn_i]" (knot).</documentation>
 						</annotation>
 					</element>
+					<element name="intensityChange" type="iwxxm:ExpectedIntensityChangeType">
+						<annotation>
+							<documentation>Changes of maximum surface wind speed at time of observation.</documentation>
+						</annotation>
+					</element>
 					<element name="centralPressure" type="gml:MeasureType">
 						<annotation>
 							<documentation>The central pressure of the tropical cyclone.  Central pressure of cyclone shall be provided in hectoPascals (hPa).</documentation>
@@ -165,7 +171,7 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 							<documentation>The tropical cyclone position</documentation>
 						</annotation>
 					</element>
-					<element name="maximumSurfaceWindSpeed" type="gml:SpeedType">
+					<element name="maximumSurfaceWindSpeed" type="iwxxm:VelocityWithNilReasonType">
 						<annotation>
 							<documentation>The maximum 10-minute mean surface wind speed near the centre of the tropical cyclone which shall be provided in either two units of measures: "m/s" or "[kn_i]" (knot).</documentation>
 						</annotation>
@@ -199,6 +205,28 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 			<enumeration value="STATIONARY">
 				<annotation>
 					<documentation>The tropical cyclone is stationary (&lt; 2 km/h or 1 kt) and will not have a reported movement speed or direction</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="ExpectedIntensityChangeType">
+		<annotation>
+			<documentation>Expected change in intensity for the meteorological phenomena.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="NO_CHANGE">
+				<annotation>
+					<documentation>No change (NC)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="WEAKEN">
+				<annotation>
+					<documentation>Forecast to weaken (WKN)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="INTENSIFY">
+				<annotation>
+					<documentation>Forecast to intensify (INTSF)</documentation>
 				</annotation>
 			</enumeration>
 		</restriction>

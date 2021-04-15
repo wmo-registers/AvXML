@@ -1,5 +1,14 @@
 =========================================
-3.0-dev
+2021-2-dev - TBA
+=========================================
+* Changes involving Amendments 79 and 80 to ICAO Annex 3
+  * Tropical Cyclone Advisory
+    + Added iwxxm:intensityChange to indicate changes of maximum surface wind speed at the time of observation
+* Made iwxxm:tropicalCyclonePosition and iwxxm:maximumSurfaceWindSpeed in the forecast part of the Tropical Cyclone Advisory
+  nillable (issue #166)
+
+=========================================
+3.0-dev - Not published
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)
 * Fixed METAR_SPECI.MeteorologicalAerodromeObservationReport-5, 6, 7 and 8 which cannot handle nilReason(s) in multiple cloud
