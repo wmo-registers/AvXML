@@ -4,6 +4,7 @@
 * Changes involving Amendments 79 and 80 to ICAO Annex 3
   * Tropical Cyclone Advisory
     + Added iwxxm:intensityChange to indicate changes of maximum surface wind speed at the time of observation
+* Updated the content of TAC-to-XML-Guidance.txt (also from issues #107)
 * Made iwxxm:tropicalCyclonePosition and iwxxm:maximumSurfaceWindSpeed in the forecast part of the Tropical Cyclone Advisory
   nillable (issue #166)
 
