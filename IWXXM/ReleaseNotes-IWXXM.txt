@@ -4,6 +4,7 @@
 * Changes involving Amendments 79 and 80 to ICAO Annex 3
   * Volvanic Ash Advisory:
     * Modified iwxxm:summitElevation to allow the reporting of unknown elevation
+* Updated the content of TAC-to-XML-Guidance.txt (also from issues #107)
 
 =========================================
 3.0-dev - Not published
