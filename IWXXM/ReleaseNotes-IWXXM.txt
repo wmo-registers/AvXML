@@ -1,8 +1,10 @@
 =========================================
 2021-2-dev - TBA
 =========================================
+Package METAR/SPECI
 * Fixed the issue of unnecessarily restricting the maximum number of iwxxm:trendForecast to 3
 * Fixed the issue regarding the recommended nilReason for SNOCLO cannot pass Schematron validation (issue #203)
+* Updated the code list for iwxxm:AerodromePresentOfForecastWeather
 
 =========================================
 3.0-dev - Not published
