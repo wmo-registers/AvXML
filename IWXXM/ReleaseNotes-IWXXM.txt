@@ -1,11 +1,11 @@
 =========================================
 2021-2-dev - TBA
 =========================================
+Package Volcanic Ash Advisory
 * Changes involving Amendments 79 and 80 to ICAO Annex 3
-  * Volvanic Ash Advisory:
-    * Modified iwxxm:summitElevation to allow the reporting of unknown elevation
-* Updated the content of TAC-to-XML-Guidance.txt (also from issues #107)
+  * Modified iwxxm:summitElevation to allow the reporting of unknown elevation
 * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
+* Updated the content of TAC-to-XML-Guidance.txt (issues #107)
 
 =========================================
 3.0-dev - Not published
