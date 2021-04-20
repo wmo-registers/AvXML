@@ -1,10 +1,10 @@
 =========================================
 2021-2-dev - TBA
 =========================================
-Package Space Weather Advisory
-* Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
-* Updated the content of TAC-to-XML-Guidance.txt (issues #107)
-* Updated the code list for iwxxm:SpaceWeatherLocation
+Package Space Weather Advisory (Version 3.0.1-dev)
+  * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
+  * Updated the content of TAC-to-XML-Guidance.txt (issues #107)
+  * Updated the code list for iwxxm:SpaceWeatherLocation
 
 =========================================
 3.0-dev - Not published
