@@ -9,7 +9,7 @@
    <sch:ns prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
    <sch:ns prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"/>
    <sch:ns prefix="reg" uri="http://purl.org/linked-data/registry#"/>
-   <sch:ns prefix="iwxxm" uri="http://icao.int/iwxxm/3.0"/>
+   <sch:ns prefix="iwxxm" uri="http://icao.int/iwxxm/2021-2"/>
    <sch:pattern id="METAR_SPECI.AerodromeRunwayState-1">
       <sch:rule context="//iwxxm:AerodromeRunwayState">
          <sch:assert test="( if( @allRunways = 'true' ) then( empty(iwxxm:runway) ) else( true() ) )">METAR_SPECI.AerodromeRunwayState-1: When all runways are being reported upon, no specific runway should be reported</sch:assert>
@@ -725,29 +725,29 @@
          <sch:assert test="( if( exists(iwxxm:base) and not(iwxxm:base/@xsi:nil = 'true') ) then( (iwxxm:base/@uom = 'm') or (iwxxm:base/@uom = '[ft_i]') ) else( true() ) )">Common.CloudLayer-1: base shall be reported in metres (m) or feet ([ft_i])</sch:assert>
       </sch:rule>
    </sch:pattern>
-   <sch:pattern id="Common.Report-5">
+   <sch:pattern id="Common.Report-2">
       <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
-         <sch:assert test="( if( //@gml:id[not(matches(.,'uuid\.[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}'))] ) then( false() ) else( true() ) )">Common.Report-5: All gml:ids in IWXXM reports must be prefixed with 'uuid.' and must be UUID version 4</sch:assert>
-      </sch:rule>
-   </sch:pattern>
-   <sch:pattern id="Common.Report-4">
-      <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
-         <sch:assert test="( if( exists(.//iwxxm:extension) ) then( sum(.//iwxxm:extension/.//text()/string-length(.) ) +sum(.//iwxxm:extension/.//element()/( (string-length( name() ) * 2 ) + 5 ) ) +sum(.//iwxxm:extension/.//@*/( 1 + string-length(name()) + 3 + string-length(.) ) ) +sum(.//iwxxm:extension/.//comment()/( string-length( . ) + 7 )) lt 5000 ) else( true() ) )">Common.Report-4: Total size of extension content must not exceed 5000 characters per report</sch:assert>
+         <sch:assert test="( if( exists(.//iwxxm:extension) ) then( sum(.//iwxxm:extension/.//text()/string-length(.) ) +sum(.//iwxxm:extension/.//element()/( (string-length( name() ) * 2 ) + 5 ) ) +sum(.//iwxxm:extension/.//@*/( 1 + string-length(name()) + 3 + string-length(.) ) ) +sum(.//iwxxm:extension/.//comment()/( string-length( . ) + 7 )) lt 5000 ) else( true() ) )">Common.Report-2: Total size of extension content must not exceed 5000 characters per report</sch:assert>
       </sch:rule>
    </sch:pattern>
    <sch:pattern id="Common.Report-1">
       <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
-         <sch:assert test="( if( @permissibleUsage = 'NON-OPERATIONAL' ) then( exists(@permissibleUsageReason) ) else( true() ) )">Common.Report-1: Non-operational reports must include a permissibleUsageReason</sch:assert>
+         <sch:assert test="( if( exists(@translatedBulletinID) or exists(@translatedBulletinReceptionTime) or exists(@translationCentreDesignator) or exists(@translationCentreName) or exists(@translationTime) or exists(@translationFailedTAC)) then( exists(@translatedBulletinID) and exists(@translatedBulletinReceptionTime) and exists(@translationCentreDesignator) and exists(@translationCentreName) and exists(@translationTime) ) else( true() ) )">Common.Report-1: Translated reports must include @translatedBulletinID, @translatedBulletinReceptionTime, @translationCentreDesignator, @translationCentreName, @translationTime and optionally @translationFailedTAC if translation failed</sch:assert>
       </sch:rule>
    </sch:pattern>
-   <sch:pattern id="Common.Report-2">
+   <sch:pattern id="Common.BasicReport-3">
       <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
-         <sch:assert test="( if( @permissibleUsage ='OPERATIONAL') then( empty(@permissibleUsageReason) ) else( true() ) )">Common.Report-2: Operational reports should not include a permissibleUsageReason</sch:assert>
+         <sch:assert test="( if( //@gml:id[not(matches(.,'uuid\.[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}'))] ) then( false() ) else( true() ) )">Common.BasicReport-3: All gml:ids in IWXXM reports must be prefixed with 'uuid.' and must be UUID version 4</sch:assert>
       </sch:rule>
    </sch:pattern>
-   <sch:pattern id="Common.Report-3">
+   <sch:pattern id="Common.BasicReport-1">
       <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
-         <sch:assert test="( if( exists(@translatedBulletinID) or exists(@translatedBulletinReceptionTime) or exists(@translationCentreDesignator) or exists(@translationCentreName) or exists(@translationTime) or exists(@translationFailedTAC)) then( exists(@translatedBulletinID) and exists(@translatedBulletinReceptionTime) and exists(@translationCentreDesignator) and exists(@translationCentreName) and exists(@translationTime) ) else( true() ) )">Common.Report-3: Translated reports must include @translatedBulletinID, @translatedBulletinReceptionTime, @translationCentreDesignator, @translationCentreName, @translationTime and optionally @translationFailedTAC if translation failed</sch:assert>
+         <sch:assert test="( if( @permissibleUsage = 'NON-OPERATIONAL' ) then( exists(@permissibleUsageReason) ) else( true() ) )">Common.BasicReport-1: Non-operational reports must include a permissibleUsageReason</sch:assert>
+      </sch:rule>
+   </sch:pattern>
+   <sch:pattern id="Common.BasicReport-2">
+      <sch:rule context="//iwxxm:METAR|//iwxxm:SPECI|//iwxxm:TAF|//iwxxm:SIGMET|//iwxxm:VolcanicAshSIGMET|//iwxxm:TropicalCycloneSIGMET|//iwxxm:AIRMET|//iwxxm:TropicalCycloneAdvisory|//iwxxm:VolcanicAshAdvisory|//iwxxm:SpaceWeatherAdvisory">
+         <sch:assert test="( if( @permissibleUsage ='OPERATIONAL') then( empty(@permissibleUsageReason) ) else( true() ) )">Common.BasicReport-2: Operational reports should not include a permissibleUsageReason</sch:assert>
       </sch:rule>
    </sch:pattern>
    <sch:pattern id="Common.AerodromeCloudForecast-2">
