@@ -3,7 +3,6 @@
 	<include schemaLocation="measures.xsd"></include>
 	<include schemaLocation="common.xsd"></include>
 	<include schemaLocation="metFeature.xsd"></include>
-	<include schemaLocation="WAFSSigWxFC.xsd"></include>
 	<include schemaLocation="spaceWxAdvisory.xsd"></include>
 	<include schemaLocation="volcanicAshAdvisory.xsd"></include>
 	<include schemaLocation="tropicalCycloneAdvisory.xsd"></include>
