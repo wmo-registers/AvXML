@@ -9,7 +9,7 @@
    <sch:ns prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
    <sch:ns prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"/>
    <sch:ns prefix="reg" uri="http://purl.org/linked-data/registry#"/>
-   <sch:ns prefix="iwxxm" uri="http://icao.int/iwxxm/3.0"/>
+   <sch:ns prefix="iwxxm" uri="http://icao.int/iwxxm/2021-2"/>
    <sch:pattern id="METAR_SPECI.AerodromeRunwayState-1">
       <sch:rule context="//iwxxm:AerodromeRunwayState">
          <sch:assert test="( if( @allRunways = 'true' ) then( empty(iwxxm:runway) ) else( true() ) )">METAR_SPECI.AerodromeRunwayState-1: When all runways are being reported upon, no specific runway should be reported</sch:assert>
@@ -698,6 +698,16 @@
    <sch:pattern id="SpaceWeatherAdvisory.SpaceWeatherAdvisory-2">
       <sch:rule context="//iwxxm:SpaceWeatherAdvisory">
          <sch:assert test="( if( (string-length(@translationFailedTAC) eq 0) and (@permissibleUsage = 'OPERATIONAL') ) then( exists(iwxxm:issueTime) and exists(iwxxm:issuingSpaceWeatherCentre) and exists(iwxxm:advisoryNumber) and exists(iwxxm:phenomenon) and exists(iwxxm:analysis) and exists(iwxxm:remarks) and exists(iwxxm:nextAdvisoryTime) ) else( true() ) )">SpaceWeatherAdvisory.SpaceWeatherAdvisory-2: An ordinary report should have appropriately filled elements including iwxxm:issueTime, iwxxm:issuingSpaceWeatherCentre, iwxxm:advisoryNumber, iwxxm:phenomenon, iwxxm:analysis, iwxxm:remarks and iwxxm:nextAdvisoryTime</sch:assert>
+      </sch:rule>
+   </sch:pattern>
+   <sch:pattern id="WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2">
+      <sch:rule context="//iwxxm:WAFSSignificantWeatherForecast">
+         <sch:assert test="( exists(./iwxxm:phenomenonBaseTime) )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2: phenomenonBaseTime is mandatory</sch:assert>
+      </sch:rule>
+   </sch:pattern>
+   <sch:pattern id="WAFSSignificantWeatherForecast.WAFsSignificantWeatherForecast-1">
+      <sch:rule context="//iwxxm:WAFSSignificantWeatherForecast">
+         <sch:assert test="( ./iwxxm:phenomenonCategory = 'weatherForecasts' )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-1: phenomenonCategory shall be equal to 'weatherForecasts'.</sch:assert>
       </sch:rule>
    </sch:pattern>
    <sch:pattern id="METAR_SPECI.MeteorologicalAerodromeTrendForecast.weather">
