@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="iwxxm.xsd"></include>
 	<include schemaLocation="common.xsd"></include>
 	<import namespace="http://def.wmo.int/metce/2013" schemaLocation="http://schemas.wmo.int/metce/1.2/metce.xsd"></import>
-	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>Tropical Cyclone Advisory reporting constructs as defined in ICAO Annex 3 / WMO No. 49-2.
@@ -35,7 +35,7 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 							<documentation>The tropical cyclone name.  If the tropical cyclone is unnamed, 'NN' may be used</documentation>
 						</annotation>
 					</element>
-					<element name="advisoryNumber" type="iwxxm:StringWithNilReasonType" minOccurs="0" maxOccurs="1">
+					<element nillable="true" name="advisoryNumber" type="iwxxm:StringWithNilReasonType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>Advisory number: year in full and message number (separate sequence for each cyclone)</documentation>
 						</annotation>
@@ -50,7 +50,7 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 							<documentation>The forecast conditions of the tropical cyclone at given time intervals.</documentation>
 						</annotation>
 					</element>
-					<element name="remarks" type="iwxxm:StringWithNilReasonType" minOccurs="0" maxOccurs="1">
+					<element nillable="true" name="remarks" type="iwxxm:StringWithNilReasonType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>Remarks, as necessary.
 
@@ -166,12 +166,12 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 							<documentation>The time at which meteorological phenomena occur</documentation>
 						</annotation>
 					</element>
-					<element name="tropicalCyclonePosition" type="gml:PointPropertyType">
+					<element nillable="true" name="tropicalCyclonePosition" type="gml:PointPropertyType">
 						<annotation>
 							<documentation>The tropical cyclone position</documentation>
 						</annotation>
 					</element>
-					<element name="maximumSurfaceWindSpeed" type="iwxxm:VelocityWithNilReasonType">
+					<element nillable="true" name="maximumSurfaceWindSpeed" type="iwxxm:VelocityWithNilReasonType">
 						<annotation>
 							<documentation>The maximum 10-minute mean surface wind speed near the centre of the tropical cyclone which shall be provided in either two units of measures: "m/s" or "[kn_i]" (knot).</documentation>
 						</annotation>
