@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="1.0.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
-	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1_profiles/AIXM_WX/5.1.1b/AIXM_Features.xsd"></import>
-	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="1.0.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="iwxxm.xsd"></include>
+	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1/AIXM_Features.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>This package provides basic features for describing meteorological and related phenomena specialised for the aviation domain.
@@ -24,7 +24,7 @@ For ease of maintenance the controlled source are a set of constraints defined t
 							<documentation>The period covering all of the phenomena mentioned in the collective.</documentation>
 						</annotation>
 					</element>
-					<element name="boundingVolume" type="iwxxm:ElevatedEnvelopeType" minOccurs="0" maxOccurs="1">
+					<element name="boundingVolume" type="iwxxm:ElevatedEnvelopePropertyType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>The volume containing all of the phenomena mentioned in the collective during the bounding period.</documentation>
 						</annotation>
@@ -172,22 +172,22 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:EnvelopeType">
 				<sequence>
-					<element name="upperElevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="upperElevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the upper surface measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="upperVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="upperVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
 					</element>
-					<element name="lowerElevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="lowerElevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the lower surface measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="lowerVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="lowerVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
@@ -212,17 +212,17 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:AbstractGeometricPrimitiveType">
 				<sequence>
-					<element name="elevation" type="aixm:ValDistanceVerticalType">
+					<element name="elevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the curve measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="verticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="verticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere.</documentation>
 						</annotation>
 					</element>
-					<element name="interpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="interpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value. </documentation>
 						</annotation>
@@ -247,17 +247,17 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:PointType">
 				<sequence>
-					<element name="elevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="elevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the point measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="verticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="verticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
 					</element>
-					<element name="interpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="interpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value. </documentation>
 						</annotation>
@@ -282,17 +282,17 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:CurveType">
 				<sequence>
-					<element name="elevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="elevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the curve measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="verticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="verticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere.</documentation>
 						</annotation>
 					</element>
-					<element name="interpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="interpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value. </documentation>
 						</annotation>
@@ -317,17 +317,17 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:SurfaceType">
 				<sequence>
-					<element name="elevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="elevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the surface measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="verticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="verticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
 					</element>
-					<element name="interpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="interpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value.</documentation>
 						</annotation>
@@ -352,32 +352,32 @@ The actual featureType to be used in describing the properties shall be constrai
 		<complexContent>
 			<extension base="gml:SurfaceType">
 				<sequence>
-					<element name="upperElevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="upperElevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the upper surface measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="upperVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="upperVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere.</documentation>
 						</annotation>
 					</element>
-					<element name="upperInterpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="upperInterpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value. </documentation>
 						</annotation>
 					</element>
-					<element name="lowerElevation" type="aixm:ValDistanceVerticalType">
+					<element nillable="true" name="lowerElevation" type="iwxxm:ValDistanceVerticalType">
 						<annotation>
 							<documentation>The vertical distance of the lower surface measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="lowerVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="lowerVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere.</documentation>
 						</annotation>
 					</element>
-					<element name="lowerInterpretation" type="CodeValueInterpretationBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="lowerInterpretation" type="aixm:CodeValueInterpretationBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value. </documentation>
 						</annotation>
