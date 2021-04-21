@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.1.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="iwxxm.xsd"></include>
 	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1/AIXM_Features.xsd"></import>
-	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>Common constructs used across multiple packages.  This package includes constructs closely related to the aviation weather domain.
@@ -17,10 +17,26 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 		<complexContent>
 			<extension base="gml:AbstractFeatureType">
 				<sequence></sequence>
-				<attribute name="reportStatus" type="iwxxm:ReportStatusType"></attribute>
-				<attribute name="permissibleUsage" type="iwxxm:PermissibleUsageType"></attribute>
-				<attribute name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType"></attribute>
-				<attribute name="permissbleUsageSupplementary" type="string"></attribute>
+				<attribute use="required" name="reportStatus" type="iwxxm:ReportStatusType">
+					<annotation>
+						<documentation>The issuance status of the report.</documentation>
+					</annotation>
+				</attribute>
+				<attribute use="required" name="permissibleUsage" type="iwxxm:PermissibleUsageType">
+					<annotation>
+						<documentation>The permissible usage of this report (OPERATIONAL or NON-OPERATIONAL).</documentation>
+					</annotation>
+				</attribute>
+				<attribute use="required" name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType">
+					<annotation>
+						<documentation>The permissible usage reason of this report. Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
+					</annotation>
+				</attribute>
+				<attribute use="required" name="permissbleUsageSupplementary" type="string">
+					<annotation>
+						<documentation>Additional human-readable descriptive information regarding the permissible usage.  Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
+					</annotation>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -364,6 +380,7 @@ For example, the "above" operator in conjunction with the reported quantity 10.6
 			</enumeration>
 		</restriction>
 	</simpleType>
+	<element name="AerodromeForecastWeather" type="iwxxm:AerodromeForecastWeatherType"></element>
 	<complexType name="AerodromeForecastWeatherType">
 		<annotation>
 			<documentation>AerodromeForecastWeather enables the forecast weather at an aerodrome to be reported.
@@ -380,6 +397,7 @@ This CodeList is specifically defined for aviation purposes as defined in WMO No
 			<extension base="gml:ReferenceType"></extension>
 		</complexContent>
 	</complexType>
+	<element name="SigConvectiveCloudType" type="iwxxm:SigConvectiveCloudTypeType"></element>
 	<complexType name="SigConvectiveCloudTypeType">
 		<annotation>
 			<documentation>Genus of cloud of operational significance to aviation: significant convective clouds only.
@@ -397,6 +415,7 @@ This CodeList is specifically defined for aviation purposes, as defined in WMO N
 			<extension base="gml:ReferenceType"></extension>
 		</complexContent>
 	</complexType>
+	<element name="CloudAmountReportedAtAerodrome" type="iwxxm:CloudAmountReportedAtAerodromeType"></element>
 	<complexType name="CloudAmountReportedAtAerodromeType">
 		<annotation>
 			<documentation>Amount of cloud - assessed by category:
@@ -465,6 +484,14 @@ This CodeList is specifically defined for aviation purposes, as defined in WMO N
 		</sequence>
 		<attributeGroup ref="gml:AssociationAttributeGroup"/>
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<complexType name="ValDistanceVerticalType">
+		<simpleContent>
+			<extension base="aixm:ValDistanceVerticalBaseType">
+				<attribute name="uom" type="aixm:UomDistanceVerticalType"/>
+				<attribute name="nilReason" type="gml:NilReasonType"/>
+			</extension>
+		</simpleContent>
 	</complexType>
 	<complexType name="AbstractTimeObjectPropertyType">
 		<sequence minOccurs="0">
