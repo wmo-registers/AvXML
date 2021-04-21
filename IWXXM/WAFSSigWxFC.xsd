@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="1.0.0-dev" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:iwxxm="http://icao.int/iwxxm/3.0" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="1.0.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="iwxxm.xsd"></include>
 	<include schemaLocation="metFeature.xsd"></include>
-	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1_profiles/AIXM_WX/5.1.1b/AIXM_Features.xsd"></import>
-	<import namespace="http://icao.int/iwxxm/3.0" schemaLocation="iwxxm.xsd"></import>
+	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1/AIXM_Features.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
 		<documentation>This package defines a collective and selected meteorological objects for the World Area Forecast System (WAFS) to deliver forecasts of significant en-route weather phenomena as Significant Weather (SIGWX) forecasts.  
@@ -19,7 +19,13 @@ See ICAO Annex 3 / WMO No. 49-2 for details.</documentation>
 	<complexType name="WAFSSignificantWeatherForecastType">
 		<complexContent>
 			<extension base="iwxxm:MeteorologicalFeatureCollectionType">
-				<sequence></sequence>
+				<sequence>
+					<element name="extension" type="iwxxm:ExtensionType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Extension block for optional and/or additional parameters for element WAFSSignificantWeatherForecast</documentation>
+						</annotation>
+					</element>
+				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -41,43 +47,34 @@ Describes the horizontal wind speed and direction at the point and optionally th
 		<complexContent>
 			<extension base="gml:AbstractGMLType">
 				<sequence>
-					<element name="location">
+					<element name="location" type="iwxxm:ElevatedPointPropertyType">
 						<annotation>
 							<documentation>Position of the wind symbol.</documentation>
 						</annotation>
-						<complexType>
-							<complexContent>
-								<extension base="gml:AbstractMemberType">
-									<sequence>
-										<element ref="iwxxm:ElevatedPoint"></element>
-									</sequence>
-								</extension>
-							</complexContent>
-						</complexType>
 					</element>
-					<element name="windSpeed" type="iwxxm:VelocityWithNilReasonType">
+					<element nillable="true" name="windSpeed" type="iwxxm:VelocityWithNilReasonType">
 						<annotation>
 							<documentation>Horizontal wind speed at the indicated position.
 
 Wind speeds shall be provided in unit of measurer "m/s" (meters per second).</documentation>
 						</annotation>
 					</element>
-					<element name="IsotachUpperElevation" type="aixm:ValDistanceVerticalType" minOccurs="0" maxOccurs="1">
+					<element nillable="true" name="IsotachUpperElevation" type="iwxxm:ValDistanceVerticalType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>The vertical distance of the 80 knot isotach above the jet stream measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="IsotachUpperVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="IsotachUpperVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
 					</element>
-					<element name="IsotachLowerElevation" type="aixm:ValDistanceVerticalType" minOccurs="0" maxOccurs="1">
+					<element nillable="true" name="IsotachLowerElevation" type="iwxxm:ValDistanceVerticalType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>The vertical distance of the 80 knot isotach below the jet stream measured from Mean Sea Level (MSL).</documentation>
 						</annotation>
 					</element>
-					<element name="IsotachLowerVerticalReference" type="CodeVerticalReferenceBaseTypeType" minOccurs="0" maxOccurs="1">
+					<element name="IsotachLowerVerticalReference" type="aixm:CodeVerticalReferenceBaseType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>A code indicating the reference for a vertical distance. Two series of values exist: 1) real distance: from GND, from the MSL, from the WGS-84 ellipsoid; 2) distance based on a difference of pressures, according to the standard atmosphere. </documentation>
 						</annotation>
@@ -102,7 +99,7 @@ Wind speeds shall be provided in unit of measurer "m/s" (meters per second).</do
 		<complexContent>
 			<extension base="gml:AbstractGMLType">
 				<sequence>
-					<element name="name" type="iwxxm:StringWithNilReasonType">
+					<element nillable="true" name="name" type="iwxxm:StringWithNilReasonType">
 						<annotation>
 							<documentation>Name of the volcano.</documentation>
 						</annotation>
@@ -127,7 +124,7 @@ Wind speeds shall be provided in unit of measurer "m/s" (meters per second).</do
 		<complexContent>
 			<extension base="gml:AbstractGMLType">
 				<sequence>
-					<element name="name" type="iwxxm:StringWithNilReasonType">
+					<element nillable="true" name="name" type="iwxxm:StringWithNilReasonType">
 						<annotation>
 							<documentation>Name of the tropical cyclone.</documentation>
 						</annotation>
@@ -152,7 +149,7 @@ Wind speeds shall be provided in unit of measurer "m/s" (meters per second).</do
 		<complexContent>
 			<extension base="gml:AbstractGMLType">
 				<sequence>
-					<element name="siteName" type="iwxxm:StringWithNilReasonType">
+					<element nillable="true" name="siteName" type="iwxxm:StringWithNilReasonType">
 						<annotation>
 							<documentation>Incident location.</documentation>
 						</annotation>
