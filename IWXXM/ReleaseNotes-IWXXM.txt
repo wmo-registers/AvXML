@@ -1,4 +1,12 @@
 =========================================
+2021-2-dev - TBA
+=========================================
+Package AIRMET (Version 3.1.0RC1)
+  * Fixed the issue regarding AIRMET is unable to represent phenomenon CLD nnn/[ABV][n]nnnM (issue #206)
+  * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
+  * Updated the content of TAC-to-XML-Guidance.txt (issues #107)
+
+=========================================
 3.0-dev
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)
