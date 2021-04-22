@@ -9,7 +9,6 @@ Package SIGMET (Version 3.1.0RC1)
     iwxxm:TropicalCycloneSIGMETEvolvingConditionCollection and a schematron rule to suppress occurrence of these elements
     and attributes under iwxxm:SIGMETEvolvingCondition (issue #209)
   * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
-  * Updated the content of TAC-to-XML-Guidance.txt (issues #107)
 
 =========================================
 3.0-dev
