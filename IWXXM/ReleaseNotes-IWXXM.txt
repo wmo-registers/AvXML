@@ -1,4 +1,17 @@
 =========================================
+2021-2-dev - TBA
+=========================================
+Package SIGMET (Version 3.1.0RC1)
+  * Changes involving Amendment 79 and 80 to ICAO Annex 3
+    * Changed the multiplicity of iwxxm:eruptingVolcano and iwxxm:tropicalCyclone from [0..2] to [0..1]
+    - Removed @volconoId and @tropicalCycloneId
+  + Added iwxxm:directionOfMotion, iwxxm:speedOfMotion and @intensityChange to
+    iwxxm:TropicalCycloneSIGMETEvolvingConditionCollection and a schematron rule to suppress occurrence of these elements
+    and attributes under iwxxm:SIGMETEvolvingCondition (issue #209)
+  * Allowed the use of xsi:nil="true" of some elements for a consistent representation of nil information (issue #241)
+  * Updated the content of TAC-to-XML-Guidance.txt (issues #107)
+
+=========================================
 3.0-dev
 =========================================
 * Aligned Space Weather Advisory examples A2-3, A2-4 and A2-5 with those in Amendment 78 to ICAO Annex 3 (issue #227)

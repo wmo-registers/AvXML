@@ -455,6 +455,11 @@
          <sch:assert test="( if( exists(iwxxm:tropicalCyclonePosition/gml:Point) ) then( empty(index-of(iwxxm:tropicalCyclonePosition/gml:Point/gml:pos/(ancestor-or-self::*[exists(@srsName)])[last()]/(@srsDimension='2' and exists(@axisLabels)), false())) ) else( true() ) )">TropicalCycloneSIGMET.TropicalCycloneSIGMETEvolvoingConditionCollection-1: If a geometry is defined for iwxxm:tropicalCyclonePosition/gml:Point with the provision of attribute srsName, attribute srsDimension must equal to 2 and attribute axisLabels must be non-empty</sch:assert>
       </sch:rule>
    </sch:pattern>
+   <sch:pattern id="TropicalCycloneSIGMET.TropicalCycloneSIGMETEvolvoingConditionCollection-2">
+      <sch:rule context="//iwxxm:TropicalCycloneSIGMETEvolvingConditionCollection">
+         <sch:assert test="( empty(//iwxxm:SIGMETEvolvingCondition/iwxxm:directionOfMotion) and empty(//iwxxm:SIGMETEvolvingCondition/iwxxm:speedOfMotion) and empty(//iwxxm:SIGMETEvolvingCondition/@intensityChange) )">TropicalCycloneSIGMET.TropicalCycloneSIGMETEvolvoingConditionCollection-2: Movement and intensity if present shall associate with iwxxm:TropicalCycloneSIGMETEvolvingConditionCollection instead of iwxxm:SIGMETEvolvingCondition</sch:assert>
+      </sch:rule>
+   </sch:pattern>
    <sch:pattern id="TropicalCycloneSIGMET.TropicalCycloneSIGMETPositionCollection-1">
       <sch:rule context="//iwxxm:TropicalCycloneSIGMETPositionCollection">
          <sch:assert test="( if( exists(iwxxm:tropicalCyclonePosition/gml:Point) ) then( empty(index-of(iwxxm:tropicalCyclonePosition/gml:Point/gml:pos/(ancestor-or-self::*[exists(@srsName)])[last()]/(@srsDimension='2' and exists(@axisLabels)), false())) ) else ( true() ) )">TropicalCycloneSIGMET.TropicalCycloneSIGMETPositionCollection-1: If a geometry is defined for iwxxm:tropicalCyclonePosition/gml:Point with the provision of attribute srsName, attribute srsDimension must equal to 2 and attribute axisLabels must be non-empty</sch:assert>
