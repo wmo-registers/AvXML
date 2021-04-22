@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="1.0.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns="http://www.w3.org/2001/XMLSchema">
 	<include schemaLocation="iwxxm.xsd"></include>
+	<include schemaLocation="common.xsd"></include>
 	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="http://www.aixm.aero/schema/5.1.1/AIXM_Features.xsd"></import>
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"></import>
 	<annotation>
@@ -10,14 +11,14 @@ Feature types defined in this package, in addition to the strong-typed approach 
 
 For ease of maintenance the controlled source are a set of constraints defined together with the Class diagrams used to generate the XML/GML application schemas of IWXXM.  Scripts will be used to extract constraints from the Class diagrams and generate Schematron rules to enforce conformance to the information model.</documentation>
 	</annotation>
-	<element name="MeteorologicalFeatureCollection" type="iwxxm:MeteorologicalFeatureCollectionType" substitutionGroup="gml:AbstractFeature">
+	<element name="MeteorologicalFeatureCollection" type="iwxxm:MeteorologicalFeatureCollectionType" substitutionGroup="iwxxm:BasicReport">
 		<annotation>
 			<documentation>A collective for meteorological features.</documentation>
 		</annotation>
 	</element>
 	<complexType name="MeteorologicalFeatureCollectionType">
 		<complexContent>
-			<extension base="gml:AbstractFeatureType">
+			<extension base="iwxxm:BasicReportType">
 				<sequence>
 					<element name="boundingPeriod" type="gml:TimePeriodPropertyType" minOccurs="0" maxOccurs="1">
 						<annotation>
