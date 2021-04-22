@@ -27,12 +27,12 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 						<documentation>The permissible usage of this report (OPERATIONAL or NON-OPERATIONAL).</documentation>
 					</annotation>
 				</attribute>
-				<attribute use="required" name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType">
+				<attribute name="permissibleUsageReason" type="iwxxm:PermissibleUsageReasonType">
 					<annotation>
 						<documentation>The permissible usage reason of this report. Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
 					</annotation>
 				</attribute>
-				<attribute use="required" name="permissbleUsageSupplementary" type="string">
+				<attribute name="permissbleUsageSupplementary" type="string">
 					<annotation>
 						<documentation>Additional human-readable descriptive information regarding the permissible usage.  Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
 					</annotation>
