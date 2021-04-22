@@ -45,7 +45,7 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 						</annotation>
 					</element>
 				</sequence>
-				<attribute name="intensityChange" type="iwxxm:ExpectedIntensityChangeType">
+				<attribute name="intensityChange" type="iwxxm:SIGMETExpectedIntensityChangeType">
 					<annotation>
 						<documentation>The expected change in intensity for the reported meteorological condition (e.g., intensifying, weakening, or no change) determined at the time of SIGMET analysis based on the current state of the meteorological condition</documentation>
 					</annotation>
@@ -347,7 +347,7 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 						</annotation>
 					</element>
 				</sequence>
-				<attribute name="intensityChange" type="iwxxm:ExpectedIntensityChangeType">
+				<attribute name="intensityChange" type="iwxxm:SIGMETExpectedIntensityChangeType">
 					<annotation>
 						<documentation>The expected change in intensity for the reported meteorological condition (e.g., intensifying, weakening, or no change) determined at the time of SIGMET analysis based on the current state of the meteorological condition</documentation>
 					</annotation>
@@ -457,7 +457,7 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 		<attributeGroup ref="gml:AssociationAttributeGroup"></attributeGroup>
 		<attributeGroup ref="gml:OwnershipAttributeGroup"></attributeGroup>
 	</complexType>
-	<simpleType name="ExpectedIntensityChangeType">
+	<simpleType name="SIGMETExpectedIntensityChangeType">
 		<annotation>
 			<documentation>Expected change in intensity for (significant) meteorological phenomena.
 
