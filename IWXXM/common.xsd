@@ -32,7 +32,7 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 						<documentation>The permissible usage reason of this report. Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
 					</annotation>
 				</attribute>
-				<attribute name="permissbleUsageSupplementary" type="string">
+				<attribute name="permissibleUsageSupplementary" type="string">
 					<annotation>
 						<documentation>Additional human-readable descriptive information regarding the permissible usage.  Only populated when the permissible usage is NON-OPERATIONAL.</documentation>
 					</annotation>
