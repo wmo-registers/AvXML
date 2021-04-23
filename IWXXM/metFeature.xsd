@@ -437,7 +437,7 @@ This CodeList is defined in WMO Common Code Table C-1: Identification of origina
 
 See WMO No. 306 Vol I.2 FM 94 BUFR code table 0 08 011 "Meteorological feature".</documentation>
 			<appinfo>
-				<vocabulary>http://codes.wmo.int/bufr4/codeflag/0-28-011</vocabulary>
+				<vocabulary>http://codes.wmo.int/bufr4/codeflag/0-08-011</vocabulary>
 				<extensibility>none</extensibility>
 			</appinfo>
 		</annotation>
