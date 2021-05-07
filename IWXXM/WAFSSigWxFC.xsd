@@ -170,6 +170,24 @@ Wind speeds shall be provided in unit of measurer "m/s" (meters per second).</do
 		<attributeGroup ref="gml:AssociationAttributeGroup"></attributeGroup>
 		<attributeGroup ref="gml:OwnershipAttributeGroup"></attributeGroup>
 	</complexType>
+	<element name="WorldAreaForecastCentre" type="iwxxm:WorldAreaForecastCentreType"/>
+	<simpleType name="WorldAreaForecastCentreType">
+		<annotation>
+			<documentation>WorldAreaForecastCentre identifies the institution that creates the report.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Washington">
+				<annotation>
+					<documentation>The World Area Forecast Centre (WAFC) operated by the National Oceanic and Atmospheric Administration (NOAA) in the USA.</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="London">
+				<annotation>
+					<documentation>The World Area Forecast Centre (WAFC) operated by the UK Met Office.</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
 	<element name="DegreeOfTurbulence" type="iwxxm:DegreeOfTurbulenceType"></element>
 	<complexType name="DegreeOfTurbulenceType">
 		<annotation>
