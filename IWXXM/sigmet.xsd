@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.0-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema elementFormDefault="qualified" targetNamespace="http://icao.int/iwxxm/2021-2" version="3.0.1-dev" xmlns:iwxxm="http://icao.int/iwxxm/2021-2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:metce="http://def.wmo.int/metce/2013" xmlns="http://www.w3.org/2001/XMLSchema">
 	<include schemaLocation="common.xsd"></include>
 	<include schemaLocation="iwxxm.xsd"></include>
 	<import namespace="http://def.wmo.int/metce/2013" schemaLocation="http://schemas.wmo.int/metce/1.2/metce.xsd"></import>
@@ -25,29 +25,15 @@ References to WMO and ICAO Technical Regulations within this XML schema shall ha
 							<documentation>The position of a tropical cyclone</documentation>
 						</annotation>
 					</element>
-					<element nillable="true" name="directionOfMotion" type="iwxxm:AngleWithNilReasonType" minOccurs="0" maxOccurs="1">
-						<annotation>
-							<documentation>This element refers to the expected direction of movement which the phenomenon is moving towards, .e.g, "moving east". When no movement is expected, this is a http://www.opengis.net/def/nil/OGC/0/inapplicable nilReason and the speedOfMotion will be 0.
-
-This element value is given in degrees from true North. Plane angle unit of measure (uom) is "deg". </documentation>
-						</annotation>
-					</element>
-					<element name="speedOfMotion" type="gml:SpeedType" minOccurs="0" maxOccurs="1">
-						<annotation>
-							<documentation>The expected speed of movement of a meteorological condition. When no movement is expected, this will have a value of 0 and directionOfMotion will have a http://www.opengis.net/def/nil/OGC/0/inapplicable nilReason.
-
-speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]" (knots).</documentation>
-						</annotation>
-					</element>
 					<element name="extension" type="iwxxm:ExtensionType" minOccurs="0" maxOccurs="unbounded">
 						<annotation>
 							<documentation>Extension block for optional and/or additional parameters for element TropicalCycloneSIGMETEvolvingConditionCollection</documentation>
 						</annotation>
 					</element>
 				</sequence>
-				<attribute name="intensityChange" type="iwxxm:SIGMETExpectedIntensityChangeType">
+				<attribute use="required" name="tropicalCycloneId" type="string">
 					<annotation>
-						<documentation>The expected change in intensity for the reported meteorological condition (e.g., intensifying, weakening, or no change) determined at the time of SIGMET analysis based on the current state of the meteorological condition</documentation>
+						<documentation>The ID of the relevant tropical cyclone</documentation>
 					</annotation>
 				</attribute>
 			</extension>
@@ -80,6 +66,11 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 						</annotation>
 					</element>
 				</sequence>
+				<attribute use="required" name="tropicalCycloneId" type="string">
+					<annotation>
+						<documentation>The ID of the relevant tropical cyclone</documentation>
+					</annotation>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -99,6 +90,11 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 		<complexContent>
 			<extension base="iwxxm:SIGMETEvolvingConditionCollectionType">
 				<sequence></sequence>
+				<attribute use="required" name="volcanoId" type="string">
+					<annotation>
+						<documentation>The ID of the relevant erupting volcano</documentation>
+					</annotation>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -118,6 +114,11 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 		<complexContent>
 			<extension base="iwxxm:SIGMETPositionCollectionType">
 				<sequence></sequence>
+				<attribute use="required" name="volcanoId" type="string">
+					<annotation>
+						<documentation>The ID of the relevant erupting volcano</documentation>
+					</annotation>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -329,14 +330,14 @@ In cases where the position covers an entire FIR or CTA, ("ENTIRE CTA or ENTIRE 
 					</element>
 					<element nillable="true" name="directionOfMotion" type="iwxxm:AngleWithNilReasonType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>This element refers to the expected direction of movement which the phenomenon is moving towards, .e.g, "moving east". When no movement is expected, this is a http://www.opengis.net/def/nil/OGC/0/inapplicable nilReason and the speedOfMotion will be 0.
+							<documentation>This element refers to the expected direction of movement which the phenomenon is moving towards, .e.g, "moving east". When no movement is expected, this is a http://codes.wmo.int/common/nil/inapplicable nilReason and the speedOfMotion will be 0.
 
 This element value is given in degrees from true North. Plane angle unit of measure (uom) is "deg". </documentation>
 						</annotation>
 					</element>
 					<element name="speedOfMotion" type="gml:SpeedType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>The expected speed of movement of a meteorological condition. When no movement is expected, this will have a value of 0 and directionOfMotion will have a http://www.opengis.net/def/nil/OGC/0/inapplicable nilReason.
+							<documentation>The expected speed of movement of a meteorological condition. When no movement is expected, this will have a value of 0 and directionOfMotion will have a http://codes.wmo.int/common/nil/inapplicable nilReason.
 
 speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]" (knots).</documentation>
 						</annotation>
@@ -376,7 +377,7 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 		<complexContent>
 			<extension base="iwxxm:SIGMETType">
 				<sequence>
-					<element name="tropicalCyclone" type="metce:TropicalCyclonePropertyType" minOccurs="0" maxOccurs="1">
+					<element name="tropicalCyclone" type="metce:TropicalCyclonePropertyType" minOccurs="0" maxOccurs="2">
 						<annotation>
 							<documentation>The tropical cyclone being reported in this SIGMET, required in all cases other than cancellations. When reporting the tropical cyclone name, 'NN' may be used if the tropical cyclone is unnamed</documentation>
 						</annotation>
@@ -401,7 +402,7 @@ speedOfMotion can be provided in either two units of measures: "km/h" or "[kn_i]
 		<complexContent>
 			<extension base="iwxxm:SIGMETType">
 				<sequence>
-					<element name="eruptingVolcano" type="metce:VolcanoPropertyType" minOccurs="0" maxOccurs="1">
+					<element name="eruptingVolcano" type="metce:VolcanoPropertyType" minOccurs="0" maxOccurs="2">
 						<annotation>
 							<documentation>The volcano that is erupting - required in all cases other than cancellations</documentation>
 						</annotation>
