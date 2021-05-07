@@ -113,15 +113,15 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 					</element>
 					<element name="movementDirection" type="gml:AngleType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>The movement direction observed.  Only reported when the tropical cyclone is moving at least 2 km/hour or 1 knot. Direction of movement shall be given in degrees from true North. Plane angle unit of measure (uom) is "deg".</documentation>
+							<documentation>The movement direction observed.  Only reported when the tropical cyclone is moving at least 2 km/h or 1 knot. Direction of movement shall be given in degrees from true North. Plane angle unit of measure (uom) is "deg".</documentation>
 						</annotation>
 					</element>
 					<element name="movementSpeed" type="gml:SpeedType" minOccurs="0" maxOccurs="1">
 						<annotation>
-							<documentation>The movement speed observed.  Only reported when the tropical cyclone is moving at least 2 km/hour or 1 knot.  Speed of movement shall be provided in either two units of measures: "km/h" or "[kn_i]" (knot).</documentation>
+							<documentation>The movement speed observed.  Only reported when the tropical cyclone is moving at least 2 km/h or 1 knot.  Speed of movement shall be provided in either two units of measures: "km/h" or "[kn_i]" (knot).</documentation>
 						</annotation>
 					</element>
-					<element name="intensityChange" type="iwxxm:ExpectedIntensityChangeType">
+					<element name="intensityChange" type="iwxxm:TropicalCycloneIntensityChangeType">
 						<annotation>
 							<documentation>Changes of maximum surface wind speed at time of observation.</documentation>
 						</annotation>
@@ -209,24 +209,24 @@ When no subsequent advisory is expected to be issued it should be indicated by a
 			</enumeration>
 		</restriction>
 	</simpleType>
-	<simpleType name="ExpectedIntensityChangeType">
+	<simpleType name="TropicalCycloneIntensityChangeType">
 		<annotation>
-			<documentation>Expected change in intensity for the meteorological phenomena.</documentation>
+			<documentation>Change in intensity at the time of the observation.</documentation>
 		</annotation>
 		<restriction base="string">
 			<enumeration value="NO_CHANGE">
 				<annotation>
-					<documentation>No change (NC)</documentation>
+					<documentation>No change in intensity</documentation>
 				</annotation>
 			</enumeration>
 			<enumeration value="WEAKEN">
 				<annotation>
-					<documentation>Forecast to weaken (WKN)</documentation>
+					<documentation>Tropical cyclone has weakened</documentation>
 				</annotation>
 			</enumeration>
 			<enumeration value="INTENSIFY">
 				<annotation>
-					<documentation>Forecast to intensify (INTSF)</documentation>
+					<documentation>Tropical cyclone has intensified</documentation>
 				</annotation>
 			</enumeration>
 		</restriction>
