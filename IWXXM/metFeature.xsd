@@ -40,7 +40,7 @@ For ease of maintenance the controlled source are a set of constraints defined t
 							<documentation>The time the collective is issued.</documentation>
 						</annotation>
 					</element>
-					<element name="originatingCentre" type="iwxxm:OriginatingOrGeneratingCentreType">
+					<element name="originatingCentre" type="gml:AssociationRoleType">
 						<annotation>
 							<documentation>Institution that creates the reports.</documentation>
 						</annotation>
@@ -100,7 +100,7 @@ When iwxxm:phenomenonCategory="weatherForecasts" it is the forecast time of the 
 If this element is not inherited from the encapsulating iwxxm:MeteorologicalFeatureCollection this element shall be present.</documentation>
 						</annotation>
 					</element>
-					<element name="originatingCentre" type="iwxxm:OriginatingOrGeneratingCentreType" minOccurs="0" maxOccurs="1">
+					<element name="originatingCentre" type="gml:AssociationRoleType" minOccurs="0" maxOccurs="1">
 						<annotation>
 							<documentation>Institution that creates the reports.
 
@@ -415,29 +415,14 @@ Only weatherObservations and weatherForecasts are being used in this enumeration
 			</enumeration>
 		</restriction>
 	</simpleType>
-	<element name="OriginatingOrGeneratingCentre" type="iwxxm:OriginatingOrGeneratingCentreType"></element>
-	<complexType name="OriginatingOrGeneratingCentreType">
-		<annotation>
-			<documentation>OriginatingOrGeneratingCentre identifies the institution that creates the report.
-
-This CodeList is defined in WMO Common Code Table C-1: Identification of originating/generating centre.</documentation>
-			<appinfo>
-				<vocabulary>http://codes.wmo.int/common/centre</vocabulary>
-				<extensibility>none</extensibility>
-			</appinfo>
-		</annotation>
-		<complexContent>
-			<extension base="gml:ReferenceType"></extension>
-		</complexContent>
-	</complexType>
 	<element name="MeteorologicalPhenomenon" type="iwxxm:MeteorologicalPhenomenonType"></element>
 	<complexType name="MeteorologicalPhenomenonType">
 		<annotation>
 			<documentation>MeteorologicalFeatures identifies the indicated meteorological phenomenon.
 
-See WMO No. 306 Vol I.2 FM 94 BUFR code table 0 08 011 "Meteorological feature".</documentation>
+This CodeList is specifically defined for aviation purposes.  It is a superset to the definitions defined in WMO No. 306 Vol I.2 FM 94 BUFR code table 0 08 011 "Meteorological feature".</documentation>
 			<appinfo>
-				<vocabulary>http://codes.wmo.int/bufr4/codeflag/0-08-011</vocabulary>
+				<vocabulary>http://codes.wmo.int/49-2/MeteorologicalFeature</vocabulary>
 				<extensibility>none</extensibility>
 			</appinfo>
 		</annotation>
