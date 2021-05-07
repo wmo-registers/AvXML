@@ -348,7 +348,9 @@ When there are no clouds of operational significance and no restriction on verti
 						<annotation>
 							<documentation>When runways are affected by snow, slush, or other contaminants, a runway state report for each runway in use is required.
 
-There is no maximum number of runway states that can be reported.  This may be changed in a future amendment.</documentation>
+There is no maximum number of runway states that can be reported.  This may be changed in a future amendment.
+
+When all runways are closed due to snow, this shall be indicated with a "runwayState" with a nilReason of "http://codes.wmo.int/common/nil/inapplicable"</documentation>
 						</annotation>
 						<complexType>
 							<complexContent>
