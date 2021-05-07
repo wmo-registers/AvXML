@@ -700,14 +700,19 @@
          <sch:assert test="( if( (string-length(@translationFailedTAC) eq 0) and (@permissibleUsage = 'OPERATIONAL') ) then( exists(iwxxm:issueTime) and exists(iwxxm:issuingSpaceWeatherCentre) and exists(iwxxm:advisoryNumber) and exists(iwxxm:phenomenon) and exists(iwxxm:analysis) and exists(iwxxm:remarks) and exists(iwxxm:nextAdvisoryTime) ) else( true() ) )">SpaceWeatherAdvisory.SpaceWeatherAdvisory-2: An ordinary report should have appropriately filled elements including iwxxm:issueTime, iwxxm:issuingSpaceWeatherCentre, iwxxm:advisoryNumber, iwxxm:phenomenon, iwxxm:analysis, iwxxm:remarks and iwxxm:nextAdvisoryTime</sch:assert>
       </sch:rule>
    </sch:pattern>
-   <sch:pattern id="WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2">
+   <sch:pattern id="WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-3">
       <sch:rule context="//iwxxm:WAFSSignificantWeatherForecast">
-         <sch:assert test="( exists(./iwxxm:phenomenonBaseTime) )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2: phenomenonBaseTime is mandatory</sch:assert>
+         <sch:assert test="( exists(iwxxm:originatingCentre/iwxxm:WorldAreaForecastCentre) )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-3: iwxxm:originatingCentre must have a child element of iwxxm:WorldAreaForecastCentre</sch:assert>
       </sch:rule>
    </sch:pattern>
-   <sch:pattern id="WAFSSignificantWeatherForecast.WAFsSignificantWeatherForecast-1">
+   <sch:pattern id="WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2">
       <sch:rule context="//iwxxm:WAFSSignificantWeatherForecast">
-         <sch:assert test="( ./iwxxm:phenomenonCategory = 'weatherForecasts' )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-1: phenomenonCategory shall be equal to 'weatherForecasts'.</sch:assert>
+         <sch:assert test="( exists(iwxxm:phenomenonBaseTime) )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-2: iwxxm:phenomenonBaseTime is mandatory</sch:assert>
+      </sch:rule>
+   </sch:pattern>
+   <sch:pattern id="WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-1">
+      <sch:rule context="//iwxxm:WAFSSignificantWeatherForecast">
+         <sch:assert test="( iwxxm:phenomenonCategory = 'weatherForecasts' )">WAFSSignificantWeatherForecast.WAFSSignificantWeatherForecast-1: iwxxm:phenomenonCategory shall be equal to 'weatherForecasts'.</sch:assert>
       </sch:rule>
    </sch:pattern>
    <sch:pattern id="METAR_SPECI.MeteorologicalAerodromeTrendForecast.weather">
